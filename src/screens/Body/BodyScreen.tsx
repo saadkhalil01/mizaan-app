@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Ionicons } from '@expo/vector-icons';
+import { Dumbbell } from 'lucide-react-native';
 import { COLORS, SPACING, TYPOGRAPHY } from '../../constants/theme';
 
 import ScreenBackground from '../../components/common/ScreenBackground';
@@ -11,7 +11,7 @@ export default function BodyScreen() {
         <ScreenBackground style={styles.container}>
             <ScrollView contentContainerStyle={styles.content}>
                 <View style={styles.iconContainer}>
-                    <Ionicons name="fitness" size={64} color={COLORS.body} />
+                    <Dumbbell size={64} color={COLORS.body} />
                 </View>
                 <Text style={styles.title}>Body Module</Text>
                 <Text style={styles.subtitle}>Fitness & Gym Tracking</Text>

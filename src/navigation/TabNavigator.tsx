@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, TouchableOpacity, StyleSheet, Platform, Animated } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { BadgeDollarSign, Banknote, BanknoteIcon, BicepsFlexed, Brain, CircleDollarSign, Currency, DollarSign, Dumbbell, Moon, PiggyBank } from 'lucide-react-native';
 import { COLORS, TYPOGRAPHY, SHADOWS } from '../constants/theme';
 import { TabParamList } from '../types';
 
@@ -68,20 +69,20 @@ export default function TabNavigator() {
                     right: 20,
                     backgroundColor: 'rgba(26, 32, 56, 0.95)', // Lighter translucent surface
                     borderTopWidth: 0,
-                    height: 70,
-                    borderRadius: 35,
-                    paddingBottom: Platform.OS === 'ios' ? 20 : 10,
-                    paddingTop: 10,
+                    height: 65,
+                    borderRadius: 32.5,
+                    paddingBottom: Platform.OS === 'ios' ? 15 : 8,
+                    paddingTop: 14,
                     borderWidth: 1,
                     borderColor: 'rgba(255, 255, 255, 0.15)',
                     ...SHADOWS.large,
                     elevation: 8,
+                    justifyContent: 'center',
+                    alignItems: 'center',
                 },
                 tabBarActiveTintColor: COLORS.primary,
                 tabBarInactiveTintColor: COLORS.textMuted,
-                tabBarLabelStyle: {
-                    ...TYPOGRAPHY.smallMedium,
-                },
+                tabBarShowLabel: false,
             }}
         >
             <Tab.Screen
@@ -89,7 +90,7 @@ export default function TabNavigator() {
                 component={SpiritScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="moon" size={size} color={color} />
+                        <Moon size={28} color={color} />
                     ),
                 }}
             />
@@ -98,7 +99,7 @@ export default function TabNavigator() {
                 component={BodyScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="fitness" size={size} color={color} />
+                        <BicepsFlexed size={26} color={color} />
                     ),
                 }}
             />
@@ -108,7 +109,7 @@ export default function TabNavigator() {
                 options={{
                     tabBarLabel: () => null,
                     tabBarIcon: ({ color }) => (
-                        <View style={{ marginTop: 8 }}>
+                        <View style={{}}>
                             <Ionicons name="home" size={26} color="white" />
                         </View>
                     ),
@@ -122,7 +123,7 @@ export default function TabNavigator() {
                 component={MindScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="bulb" size={size} color={color} />
+                        <Brain size={26} color={color} />
                     ),
                 }}
             />
@@ -131,7 +132,7 @@ export default function TabNavigator() {
                 component={WealthScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="trending-up" size={size} color={color} />
+                        <CircleDollarSign size={28} color={color} />
                     ),
                 }}
             />

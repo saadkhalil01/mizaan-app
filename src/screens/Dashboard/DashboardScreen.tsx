@@ -8,7 +8,8 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Brain, Dumbbell } from 'lucide-react-native';
 import { COLORS, SPACING, TYPOGRAPHY, SHADOWS, BORDER_RADIUS } from '../../constants/theme';
 import Svg, { Circle, G, Defs, LinearGradient as SvgGradient, Stop } from 'react-native-svg';
 import ScreenBackground from '../../components/common/ScreenBackground';
@@ -17,7 +18,7 @@ const { width } = Dimensions.get('window');
 
 interface ModuleCardProps {
     title: string;
-    icon: keyof typeof Ionicons.glyphMap;
+    icon: React.ReactNode;
     score: number;
     color: string;
     onPress: () => void;
@@ -33,7 +34,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({ title, icon, score, color, onPr
                 end={{ x: 1, y: 1 }}
             >
                 <View style={[styles.iconContainer, { backgroundColor: color + '20' }]}>
-                    <Ionicons name={icon} size={28} color={color} />
+                    {icon}
                 </View>
                 <Text style={styles.moduleTitle}>{title}</Text>
                 <Text style={styles.moduleScore}>{score}%</Text>
@@ -99,10 +100,10 @@ export default function DashboardScreen() {
     // Mock data - will be replaced with actual data from context
     const masterScore = 85;
     const modules = [
-        { title: 'Spirit', icon: 'moon' as const, score: 90, color: COLORS.spirit },
-        { title: 'Body', icon: 'fitness' as const, score: 75, color: COLORS.body },
-        { title: 'Mind', icon: 'bulb' as const, score: 88, color: COLORS.mind },
-        { title: 'Wealth', icon: 'trending-up' as const, score: 82, color: COLORS.wealth },
+        { title: 'Spirit', icon: <Ionicons name="moon" size={28} color={COLORS.spirit} />, score: 90, color: COLORS.spirit },
+        { title: 'Body', icon: <Dumbbell size={28} color={COLORS.body} />, score: 75, color: COLORS.body },
+        { title: 'Mind', icon: <Brain size={28} color={COLORS.mind} />, score: 88, color: COLORS.mind },
+        { title: 'Wealth', icon: <MaterialIcons name="attach-money" size={28} color={COLORS.wealth} />, score: 82, color: COLORS.wealth },
     ];
 
     return (
